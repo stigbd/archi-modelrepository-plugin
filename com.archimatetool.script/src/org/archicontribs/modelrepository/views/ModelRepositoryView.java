@@ -99,6 +99,7 @@ implements IContextProvider {
         getViewer().addDoubleClickListener(new IDoubleClickListener() {
             public void doubleClick(DoubleClickEvent event) {
                 //handleDoubleClickAction();
+            	fActionOpen.run();
             }
         });
 
@@ -183,14 +184,14 @@ implements IContextProvider {
 
         manager.add(new Separator(IWorkbenchActionConstants.NEW_GROUP));
         manager.add(fActionClone);
-        manager.add(new Separator());
         manager.add(fActionDelete);
-        manager.add(fActionRefresh);
-        manager.add(fActionOpen);
         manager.add(new Separator());
-        manager.add(fActionSave);
-        manager.add(fActionCommit);
+        manager.add(fActionRefresh);
         manager.add(fActionPush);
+        manager.add(new Separator());
+        manager.add(fActionOpen);
+        manager.add(fActionSave);
+        //manager.add(fActionCommit);
     }
     
     /**
@@ -219,14 +220,14 @@ implements IContextProvider {
         manager.add(fActionClone);
 
         if(!isEmpty) {
-            manager.add(new Separator());
             manager.add(fActionDelete);
-            manager.add(fActionRefresh);
-            manager.add(fActionOpen);
             manager.add(new Separator());
-            manager.add(fActionSave);
-            manager.add(fActionCommit);
+            manager.add(fActionRefresh);
             manager.add(fActionPush);
+            manager.add(new Separator());
+            manager.add(fActionOpen);
+            manager.add(fActionSave);
+            //manager.add(fActionCommit);
         }
     }
 

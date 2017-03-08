@@ -11,12 +11,17 @@ public class DeleteModelAction extends AbstractModelAction {
     public DeleteModelAction(IWorkbenchWindow window) {
         fWindow = window;
         setImageDescriptor(IModelRepositoryImages.ImageFactory.getImageDescriptor(IModelRepositoryImages.ICON_DELETE_16));
-        setText("Delete");
-        setToolTipText("Delete Local Copy");
+        setText("Remove Bookmark");
+        setToolTipText("Remove a Bookmark");
     }
 
     @Override
     public void run() {
-    	MessageDialog.openInformation(fWindow.getShell(), this.getText(), this.getToolTipText());
+    	boolean confirmed = MessageDialog.openConfirm(fWindow.getShell(), "Confirm", "Are you sure you want to remove this bookmark. This can't be undone!");
+    	
+    	if(confirmed) {
+    		// TODO
+    		MessageDialog.openInformation(fWindow.getShell(), this.getText(), "Model deleted!");
+    	}
     }
 }

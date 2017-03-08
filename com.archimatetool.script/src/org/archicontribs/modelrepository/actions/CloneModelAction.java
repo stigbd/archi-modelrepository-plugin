@@ -11,8 +11,8 @@ public class CloneModelAction extends AbstractModelAction {
     public CloneModelAction(IWorkbenchWindow window) {
         fWindow = window;
         setImageDescriptor(IModelRepositoryImages.ImageFactory.getImageDescriptor(IModelRepositoryImages.ICON_CLONE_16));
-        setText("Clone");
-        setToolTipText("Clone Remote Model");
+        setText("Add Bookmark");
+        setToolTipText("Bookmark a Remote Model");
     }
 
     @Override

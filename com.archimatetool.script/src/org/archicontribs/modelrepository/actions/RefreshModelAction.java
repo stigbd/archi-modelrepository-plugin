@@ -11,8 +11,8 @@ public class RefreshModelAction extends AbstractModelAction {
     public RefreshModelAction(IWorkbenchWindow window) {
         fWindow = window;
         setImageDescriptor(IModelRepositoryImages.ImageFactory.getImageDescriptor(IModelRepositoryImages.ICON_REFRESH_16));
-        setText("Refresh");
-        setToolTipText("Refresh Local Copy");
+        setText("Pull Changes");
+        setToolTipText("Pull Remote Changes");
     }
 
     @Override

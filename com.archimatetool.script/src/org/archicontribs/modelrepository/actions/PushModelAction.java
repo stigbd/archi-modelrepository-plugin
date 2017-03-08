@@ -11,7 +11,7 @@ public class PushModelAction extends AbstractModelAction {
     public PushModelAction(IWorkbenchWindow window) {
         fWindow = window;
         setImageDescriptor(IModelRepositoryImages.ImageFactory.getImageDescriptor(IModelRepositoryImages.ICON_PUSH_16));
-        setText("Push");
+        setText("Push Changes");
         setToolTipText("Push Changes to Remote Model");
     }
 
