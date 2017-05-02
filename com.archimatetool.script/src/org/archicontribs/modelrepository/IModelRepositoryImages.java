@@ -20,7 +20,7 @@ public interface IModelRepositoryImages {
     String ICON_MODEL = IMGPATH + "elements_obj.png"; //$NON-NLS-1$
     
     String ICON_CLONE_16 = IMGPATH + "add_obj.png"; //$NON-NLS-1$
-    String ICON_REFRESH_16 = IMGPATH + "import_wiz.png"; //$NON-NLS-1$
+    String ICON_REFRESH_16 = IMGPATH + "refresh.gif"; //$NON-NLS-1$
     String ICON_OPEN_16 = IMGPATH + "export_wiz.png"; //$NON-NLS-1$
     String ICON_DELETE_16 = IMGPATH + "delete.png"; //$NON-NLS-1$
     String ICON_SAVE_16 = IMGPATH + "save_edit.png"; //$NON-NLS-1$

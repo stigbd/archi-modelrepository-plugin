@@ -6,7 +6,7 @@
       <command
             defaultHandler="org.archicontribs.modelrepository.ShowRepositoryViewHandler"
             id="org.archicontribs.modelrepository.command.showRepositoryView"
-            name="Model Repository">
+            name="Remote Models">
       </command>
    </extension>
    <extension
@@ -16,7 +16,7 @@
             locationURI="menu:window?after=show_view_append">
          <command
                commandId="org.archicontribs.modelrepository.command.showRepositoryView"
-               label="Model Repository"
+               label="Remote Models"
                style="push">
          </command>
       </menuContribution>
@@ -26,7 +26,7 @@
          <command
                commandId="org.archicontribs.modelrepository.command.showRepositoryView"
                icon="img/plugin.png"
-               label="Model Repository"
+               label="Remote Models"
                style="push">
          </command>
       </menuContribution>
@@ -37,7 +37,7 @@
             class="org.archicontribs.modelrepository.views.ModelRepositoryView"
             icon="img/plugin.png"
             id="org.archicontribs.modelrepository.modelRepositoryView"
-            name="Model Repository"
+            name="Remote Models"
             restorable="true">
       </view>
    </extension>

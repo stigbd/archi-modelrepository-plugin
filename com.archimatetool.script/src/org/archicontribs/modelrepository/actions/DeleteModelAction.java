@@ -12,7 +12,7 @@ public class DeleteModelAction extends AbstractModelAction {
         fWindow = window;
         setImageDescriptor(IModelRepositoryImages.ImageFactory.getImageDescriptor(IModelRepositoryImages.ICON_DELETE_16));
         setText("Remove Bookmark");
-        setToolTipText("Remove a Bookmark");
+        setToolTipText("Remove a Bookmark and delete local copy");
     }
 
     @Override

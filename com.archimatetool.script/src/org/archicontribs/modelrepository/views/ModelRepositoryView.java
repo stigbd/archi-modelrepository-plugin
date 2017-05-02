@@ -184,12 +184,12 @@ implements IContextProvider {
 
         manager.add(new Separator(IWorkbenchActionConstants.NEW_GROUP));
         manager.add(fActionClone);
+        manager.add(new Separator());
         manager.add(fActionDelete);
-        manager.add(new Separator());
         manager.add(fActionRefresh);
-        manager.add(fActionPush);
-        manager.add(new Separator());
-        manager.add(fActionOpen);
+        //manager.add(fActionOpen);
+        //manager.add(new Separator());
+        //manager.add(fActionPush);
         manager.add(fActionSave);
         //manager.add(fActionCommit);
     }
@@ -220,12 +220,12 @@ implements IContextProvider {
         manager.add(fActionClone);
 
         if(!isEmpty) {
+        	manager.add(new Separator());
             manager.add(fActionDelete);
-            manager.add(new Separator());
             manager.add(fActionRefresh);
-            manager.add(fActionPush);
-            manager.add(new Separator());
             manager.add(fActionOpen);
+            //manager.add(fActionPush);
+            //manager.add(new Separator());
             manager.add(fActionSave);
             //manager.add(fActionCommit);
         }

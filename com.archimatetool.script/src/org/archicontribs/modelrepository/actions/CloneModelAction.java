@@ -12,7 +12,7 @@ public class CloneModelAction extends AbstractModelAction {
         fWindow = window;
         setImageDescriptor(IModelRepositoryImages.ImageFactory.getImageDescriptor(IModelRepositoryImages.ICON_CLONE_16));
         setText("Add Bookmark");
-        setToolTipText("Bookmark a Remote Model");
+        setToolTipText("Bookmark a Remote Model and create local copy for offline work");
     }
 
     @Override
