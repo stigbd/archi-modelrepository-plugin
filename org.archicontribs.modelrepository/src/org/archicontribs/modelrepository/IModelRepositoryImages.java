@@ -31,5 +31,6 @@ public interface IModelRepositoryImages {
     String ICON_SAVE_16 = IMGPATH + "import_wiz.png"; //$NON-NLS-1$
     String ICON_COMMIT_16 = IMGPATH + "forward_nav.png"; //$NON-NLS-1$
     String ICON_PUSH_16 = IMGPATH + "synced.png"; //$NON-NLS-1$
+    String SHOW_HISTORY_16 = IMGPATH + "show_history.png"; //$NON-NLS-1$
     
 }

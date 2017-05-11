@@ -17,6 +17,7 @@ import org.archicontribs.modelrepository.actions.PropertiesAction;
 import org.archicontribs.modelrepository.actions.PushModelAction;
 import org.archicontribs.modelrepository.actions.RefreshModelAction;
 import org.archicontribs.modelrepository.actions.SaveModelAction;
+import org.archicontribs.modelrepository.actions.ShowHistoryAction;
 import org.eclipse.help.HelpSystem;
 import org.eclipse.help.IContext;
 import org.eclipse.help.IContextProvider;
@@ -65,6 +66,7 @@ implements IContextProvider, ITabbedPropertySheetPageContributor {
     protected AbstractModelAction fActionClone;
     
     protected AbstractModelAction fActionOpen;
+    protected AbstractModelAction fActionShowHistory;
     protected AbstractModelAction fActionRefresh;
     protected AbstractModelAction fActionDelete;
     
@@ -118,6 +120,9 @@ implements IContextProvider, ITabbedPropertySheetPageContributor {
         fActionClone = new CloneModelAction(getViewSite().getWorkbenchWindow());
         
         fActionOpen = new OpenModelAction(getViewSite().getWorkbenchWindow());
+        fActionOpen.setEnabled(false);
+        
+        fActionShowHistory = new ShowHistoryAction(getViewSite().getWorkbenchWindow());
         fActionOpen.setEnabled(false);
         
         fActionRefresh = new RefreshModelAction(getViewSite().getWorkbenchWindow());
@@ -219,6 +224,7 @@ implements IContextProvider, ITabbedPropertySheetPageContributor {
         // Actions that need a git repository
         fActionRefresh.setGitRepository(file);
         fActionOpen.setGitRepository(file);
+        fActionShowHistory.setGitRepository(file);
         fActionDelete.setGitRepository(file);
         
         // TODO: Actions that should in fact be bounded to an ArchimateModel and not a git repository 
@@ -239,6 +245,7 @@ implements IContextProvider, ITabbedPropertySheetPageContributor {
             manager.add(fActionDelete);
             manager.add(fActionRefresh);
             manager.add(fActionOpen);
+            manager.add(fActionShowHistory);
             manager.add(new Separator());
             manager.add(fActionSave);
             manager.add(fActionCommit);
