@@ -10,6 +10,7 @@ import java.io.IOException;
 import org.archicontribs.modelrepository.IModelRepositoryImages;
 import org.archicontribs.modelrepository.grafico.GraficoUtils;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jgit.api.errors.GitAPIException;
 import org.eclipse.ui.IWorkbenchWindow;
 
 /**
@@ -32,8 +33,19 @@ public class ShowHistoryAction extends AbstractModelAction {
 
     @Override
     public void run() {
+        try {
+            GraficoUtils.showHistory(getGitRepository());
+        }
+        catch(IOException ex) {
+            ex.printStackTrace();
+        } catch (GitAPIException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
         MessageDialog.openInformation(fWindow.getShell(),
                 "Show History",
-                "Not implemented yet.");
+                "Check log.");
+        
     }
 }

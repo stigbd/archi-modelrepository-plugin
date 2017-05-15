@@ -8,6 +8,10 @@ package org.archicontribs.modelrepository.grafico;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import org.eclipse.gef.commands.CommandStack;
 import org.eclipse.jface.dialogs.ErrorDialog;
@@ -17,17 +21,26 @@ import org.eclipse.jgit.api.CommitCommand;
 import org.eclipse.jgit.api.FetchCommand;
 import org.eclipse.jgit.api.Git;
 import org.eclipse.jgit.api.InitCommand;
+import org.eclipse.jgit.api.ListBranchCommand.ListMode;
 import org.eclipse.jgit.api.PullCommand;
 import org.eclipse.jgit.api.PullResult;
 import org.eclipse.jgit.api.PushCommand;
 import org.eclipse.jgit.api.RemoteAddCommand;
 import org.eclipse.jgit.api.Status;
 import org.eclipse.jgit.api.errors.GitAPIException;
+import org.eclipse.jgit.internal.storage.file.FileRepository;
 import org.eclipse.jgit.lib.ConfigConstants;
+import org.eclipse.jgit.lib.Constants;
 import org.eclipse.jgit.lib.PersonIdent;
 import org.eclipse.jgit.lib.ProgressMonitor;
+import org.eclipse.jgit.lib.Ref;
+import org.eclipse.jgit.lib.Repository;
 import org.eclipse.jgit.lib.StoredConfig;
+import org.eclipse.jgit.revplot.PlotCommit;
+import org.eclipse.jgit.revplot.PlotWalk;
 import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevSort;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.transport.FetchResult;
 import org.eclipse.jgit.transport.PushResult;
 import org.eclipse.jgit.transport.URIish;
@@ -364,6 +377,51 @@ public class GraficoUtils {
         finally {
             if(git != null) {
                 git.close();
+            }
+        }
+    }
+    
+    /**
+     * Pull from Remote
+     * @param localGitFolder
+     * @param userName
+     * @param userPassword
+     * @return 
+     * @throws IOException
+     * @throws GitAPIException
+     */
+    public static void showHistory(File localGitFolder) throws IOException, GitAPIException {
+        Git git = null;
+        RevWalk revCommits = null;
+        Repository repository = null;
+        
+        try {
+            git = Git.open(localGitFolder);
+            repository = git.getRepository();
+        	
+            System.out.println("Commits");
+            System.out.println("-------------------------------------");
+/*            Iterable<RevCommit> revCommits = git.log()
+                    .all()
+                    .call();	 
+*/                                    
+            revCommits = new RevWalk(repository);
+			revCommits.markStart(revCommits.parseCommit(repository.resolve("HEAD")));
+			revCommits.sort(RevSort.COMMIT_TIME_DESC);
+
+            for (RevCommit revCommit : revCommits) {
+            	System.out.println("> "  + revCommit.getShortMessage() + revCommit.getAuthorIdent().getName() + " " + revCommit.getAuthorIdent().getWhen());
+
+            }
+            System.out.println("Done!");
+             
+        }
+        finally {
+            if(git != null) {
+                git.close();
+            }
+            if(revCommits != null) {
+                revCommits.close();
             }
         }
     }
